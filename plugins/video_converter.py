@@ -36,7 +36,7 @@ from hachoir.parser import createParser
 from PIL import Image
 
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["c2v"]) & pyrogram.filters.user(Config.OWNER_ID))
+@Mai_bOTs.on_message(pyrogram.filters.command(["c2v"]) & pyrogram.filters.user(int(Config.OWNER_ID)))
 async def convert_to_video(bot, update):
     #TRChatBase(update.from_user.id, update.text, "c2v")
     if update.reply_to_message is not None:
