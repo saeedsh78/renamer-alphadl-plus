@@ -36,7 +36,7 @@ from database.database import *
 from database.db import *
 
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["help"]))
+@Mai_bOTs.on_message(pyrogram.filters.command(["help"]) & pyrogram.filters.user(Config.OWNER_ID))
 async def help_user(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
@@ -58,7 +58,7 @@ async def help_user(bot, update):
         )
     )       
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["start"]))
+@Mai_bOTs.on_message(pyrogram.filters.command(["start"]) & pyrogram.filters.user(Config.OWNER_ID))
 async def start_me(bot, update):
     await update.reply_text(Translation.START_TEXT.format(update.from_user.first_name),
         reply_markup=InlineKeyboardMarkup(
