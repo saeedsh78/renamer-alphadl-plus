@@ -14,7 +14,7 @@ class Config(object):
     CHAT_ID = os.environ.get("CHAT_ID", "")
     # Array to store users who are authorized to use the bot
     AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "").split())
-    OWNER_ID = os.environ.get("OWNER_ID", None)
+    OWNER_ID = os.environ.get("OWNER_ID", None).split()
     # Banned Unwanted Members..
     BANNED_USERS = []
     # the download location, where the HTTP Server runs
