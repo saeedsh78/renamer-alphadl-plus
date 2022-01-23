@@ -36,7 +36,7 @@ from PIL import Image
 from database.database import *
 from database.db import *
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["scaption"]) & pyrogram.filters.user(int(Config.OWNER_ID)))
+@Mai_bOTs.on_message(pyrogram.filters.command(["scaption"]) & pyrogram.filters.user(Config.OWNER_ID))
 async def set_caption(bot, update):
     if len(update.command) == 1:
         await update.reply_text(
@@ -59,7 +59,7 @@ async def set_caption(bot, update):
         await update.reply_text(f"**--Your Caption--:**\n\n{CSTM_FIL_CPTN}", quote=True)
 
 
-@Mai_bOTs.on_message(pyrogram.filters.command(["rename"]) & filters.user(int(Config.OWNER_ID)))
+@Mai_bOTs.on_message(pyrogram.filters.command(["rename"]) & filters.user(Config.OWNER_ID))
 async def rename_doc(bot, update):
     #TRChatBase(update.from_user.id, update.text, "rename")
     if (" " in update.text) and (update.reply_to_message is not None):
